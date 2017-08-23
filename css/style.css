@@ -1,3 +1,38 @@
-body {
-  background-color: red;
+* {
+  border: 1px solid black;
+}
+
+.game {
+  background-color: #ccf;
+}
+.player {
+  background-color: #cfc;
+  border: 1px solid black;
+  width: 8vw;
+  height: 8vw;
+  font-size: 300%;
+}
+
+.A1 {
+  margin-left: 300px;
+}
+
+.A2 {
+  position: fixed;
+  right: 10px;
+}
+
+.space {
+  height: 60vh;
+}
+
+.restartButton {
+  width: 10%;
+  color: green;
+  margin: 20px auto;
+}
+
+input {
+  background-color: yellow;
+  color: black;
 }
