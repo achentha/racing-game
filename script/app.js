@@ -20,26 +20,30 @@ let game = {
   },
 
   moveA: function() {
-    this.aOffsetLeft += step;
-    if ((this.aOffsetLeft + this.playerWidth >= this.gameWidth) &&
-        (this.winner === "none")) {
-      this.winner = "A";
+    if (this.winner === "none") {
+      this.aOffsetLeft += step;
+      if (this.aOffsetLeft + this.playerWidth >= this.gameWidth) {
+        this.winner = "A";
+      }
       return this.winner;
     }
-
-    return "none";  //no winner yet
+    else {
+      return "gameover";
+    }
   },
 
   moveB: function() {
-    this.bOffsetLeft += step;
-    if ((this.bOffsetLeft + this.playerWidth >= this.gameWidth) &&
-        (this.winner === "none")) {
-      this.winner = "B";
+    if (this.winner === "none") {
+      this.bOffsetLeft += step;
+      if (this.bOffsetLeft + this.playerWidth >= this.gameWidth) {
+        this.winner = "B";
+      }
       return this.winner;
     }
-
-    return "none";  //no winner yet
-  },
+    else {
+      return "gameover";
+    }
+  }
 }
 
 
@@ -55,27 +59,32 @@ $(document).ready(function() {
     game.setWidth($(".game").innerWidth(),
                   $(".A").outerWidth());
     game.resetPlayers();
+    $(".A").animate({left: 0});
+    $(".B").animate({left: 0});
+
   }
 
   restart();
-  $(".restartButton").on("click", restart);
+  $(".restartButton").on("click", function() {
+    restart();
+  });
 
   $(window).keyup(function(kbEvent) {  //capture the key and update db & DOM
     if(kbEvent.keyCode === 90) {
       if ((winner = game.moveA()) === "A") {
-        let winnerOffset = $(".game").innerWidth() + $(".A").outerWidth();
+        let winnerOffset = $(".game").innerWidth() - $(".A").outerWidth() - 10;
         $(".A").animate({left: `${winnerOffset}`});
       }
-      else {
+      else if (winner === "none") {
         $(".A").animate({left: `+=${step}px`});
       }
     }
     else if (kbEvent.keyCode === 39) {
       if ((winner = game.moveB()) === "B") {
-        let winnerOffset = $(".game").innerWidth() + $(".B").outerWidth();
+        let winnerOffset = $(".game").innerWidth() - $(".B").outerWidth() - 10;
         $(".B").animate({left: `${winnerOffset}`});
       }
-      else {
+      else if (winner === "none") {
         $(".B").animate({left: `+=${step}px`});
       }
     }
@@ -83,7 +92,7 @@ $(document).ready(function() {
       console.log("ignore other key press");
     }
 
-    if (winner !== "none") {
+    if ((winner !== "none") && (winner !== "gameover")) {
       $(".space").html(`<h1>Player ${winner} won!!!</h1>`);
     }
   });
