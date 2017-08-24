@@ -61,6 +61,7 @@ $(document).ready(function() {
     game.resetPlayers();
     $(".A").animate({left: 0});
     $(".B").animate({left: 0});
+    $(".result").html("");
 
   }
 
@@ -92,8 +93,11 @@ $(document).ready(function() {
       console.log("ignore other key press");
     }
 
-    if ((winner !== "none") && (winner !== "gameover")) {
-      $(".space").html(`<h1>Player ${winner} won!!!</h1>`);
+    if (winner === "A") {
+      $(".result").html(`<h1 style="z-index: 9">!!! The Lion has won !!!</h1>`);
+    }
+    else if (winner === "B") {
+      $(".result").html(`<h1>!!! The Pig has won !!!</h1>`);
     }
   });
 

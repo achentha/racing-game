@@ -1,10 +1,32 @@
-* {
-  border: 1px solid black;
+.backgroundImage {
+  width: 95vw;
+  height: 80vh;
+  position: absolute;
+  z-index: 2;
 }
 
-.game {
-  background-color: #ccf;
+.backgroundImage img {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
+
+/*
+.characters {
+  width: 8vw;
+  height: 8vw;
+  z-index: 5;
+}
+
+
+.parot {
+  width: 8vw;
+  height: 8vw;
+  z-index: 5;
+  position: relative;
+  left: 2vw;
+}
+*/
 
 .wrapper {
   position:relative;
@@ -13,27 +35,59 @@
 }
 
 .player {
-  background-color: #cfc;
-  border: 1px solid black;
+  background-color: transparent;
   width: 8vw;
   height: 8vw;
   position: absolute;
   font-size: 300%;
+  z-index: 5;
 }
 
+.A img {
+  width: 100%;
+  height: 100%;
+}
+
+.B img {
+  width: 100%;
+  height: 100%;
+}
 .space {
   height: 60vh;
+  top: 30%;
   font-size: 40px;
   color: red;
+  z-index: 9;
+}
+
+.space h1 {
+  z-index: 9;
+}
+
+.buttonWrapper {
+  height: 4vh;
 }
 
 .restartButton {
   width: 10%;
   color: green;
-  margin: 20px auto;
+  margin: 0px auto;
+  z-index: 20;
 }
 
 input {
   background-color: yellow;
   color: black;
+  z-index: 20;
+}
+
+.result {
+  height: 5vh;
+}
+
+.result h1 {
+  width: 40%;
+  height: 100%;
+  margin: 0px auto;
+  color: red;
 }
