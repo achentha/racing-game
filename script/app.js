@@ -74,19 +74,19 @@ $(document).ready(function() {
     if(kbEvent.keyCode === 90) {
       if ((winner = game.moveA()) === "A") {
         let winnerOffset = $(".game").innerWidth() - $(".A").outerWidth() - 10;
-        $(".A").animate({left: `${winnerOffset}`});
+        $(".A").animate({left: `${winnerOffset}`}, 10);
       }
       else if (winner === "none") {
-        $(".A").animate({left: `+=${step}px`});
+        $(".A").animate({left: `+=${step}px`}, 10);
       }
     }
     else if (kbEvent.keyCode === 39) {
       if ((winner = game.moveB()) === "B") {
         let winnerOffset = $(".game").innerWidth() - $(".B").outerWidth() - 10;
-        $(".B").animate({left: `${winnerOffset}`});
+        $(".B").animate({left: `${winnerOffset}`}, 10);
       }
       else if (winner === "none") {
-        $(".B").animate({left: `+=${step}px`});
+        $(".B").animate({left: `+=${step}px`}, 10);
       }
     }
     else {
