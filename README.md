@@ -12,3 +12,5 @@ player(bottom) moves by pressing the rigth arrow key.
 
 ## History
 08/23/2017 - initial creation
+08/26/2017 - fixed the issue that the announcing of the winner comes very much
+             earlier than the displaying of the player movement.
